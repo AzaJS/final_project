@@ -1,0 +1,49 @@
+.header {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.header_active {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.left-navbar {
+  display: flex;
+  margin: 15px 20px;
+  height: 20px;
+  text-decoration: none;
+}
+
+.left-navbar div {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home-logo {
+  /* margin-top: -20px; */
+  margin-left: 50px;
+  height: 180px;
+  cursor: pointer;
+}
+
+.right-navbar {
+  display: flex;
+  margin: 15px 30px;
+  height: 20px;
+}
+
+.right-navbar div {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

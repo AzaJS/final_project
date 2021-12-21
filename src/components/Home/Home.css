@@ -1,0 +1,20 @@
+
+
+.social-links{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.links-list{
+    display: flex;
+    margin: 5px;
+    margin-right: 20px;
+}
+
+.links-list li{
+    list-style-type: none;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+}
