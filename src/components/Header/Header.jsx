@@ -4,9 +4,11 @@ import { FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { IoPersonOutline, IoCartOutline } from "react-icons/io5";
 import "./Header.css";
+import { useAuth } from "../../contexts/authContext";
 
 const Header = () => {
   const location = useLocation();
+  const { handleLogout, user } = useAuth();
   return (
     <div className={location.pathname === "/" ? "header" : "header_active"}>
       <div className="left-navbar">
@@ -18,25 +20,52 @@ const Header = () => {
           <FaSearch />
           Search
         </div> */}
-        <Link
-          to="/auth"
-          style={
-            location.pathname === "/"
-              ? { color: "white", textDecoration: "none" }
-              : { color: "black", textDecoration: "none" }
-          }
-        >
-          <div className="login">
-            {/* <span> */}
-            <IoPersonOutline />
-            {/* </span> */}
-            Login
-            {/* <span>Login</span> */}
-          </div>
-        </Link>
-      </div>
 
-      <span className="home-logo">
+        {!user ? (
+          <Link
+            to="/auth"
+            style={
+              location.pathname === "/"
+                ? { color: "white", textDecoration: "none" }
+                : { color: "black", textDecoration: "none" }
+            }
+          >
+            <div className="header-login">
+              <IoPersonOutline />
+              Login
+            </div>
+          </Link>
+        ) : user.email === "aziret1@gmail.com" ? (
+          <Link
+            to="/admin"
+            style={
+              location.pathname === "/"
+                ? { color: "white", textDecoration: "none" }
+                : { color: "black", textDecoration: "none" }
+            }
+          >
+            <div className="header-login">
+              <IoPersonOutline />
+              Admin
+            </div>
+          </Link>
+        ) : (
+          <Link
+            to="/auth"
+            style={
+              location.pathname === "/"
+                ? { color: "white", textDecoration: "none" }
+                : { color: "black", textDecoration: "none" }
+            }
+          >
+            <div className="header-login">
+              <IoPersonOutline />
+              Account
+            </div>
+          </Link>
+        )}
+      </div>
+      <div className="home-logo">
         {location.pathname === "/" ? (
           <Link to="/">
             <img
@@ -54,11 +83,20 @@ const Header = () => {
             />
           </Link>
         )}
-      </span>
+      </div>
       {/*  */}
       <div className="right-navbar">
         <div></div>
-        <div>Met store</div>
+        <Link
+          to="/store"
+          style={
+            location.pathname === "/"
+              ? { color: "white", textDecoration: "none" }
+              : { color: "black", textDecoration: "none" }
+          }
+        >
+          <div>Met store</div>
+        </Link>
         <div>
           Cart
           <IoCartOutline size="25px" />

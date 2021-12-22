@@ -1,28 +1,29 @@
 .footer {
-    color: rgb(119, 117, 117);
+  color: rgb(119, 117, 117);
 }
 
-.footer-links{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
 }
 
-.footer-links li{
-    margin: 5px 5px;
+.footer-links li {
+  margin: 5px 5px;
+  cursor: pointer;
+  list-style-type: none;
 }
 
-
-.menu-footer ul{
-    display: flex;
-    margin: 20px;
+.menu-footer ul {
+  display: flex;
+  margin: 20px;
 }
 
-.copyright{
-    margin: 20px;
+.copyright {
+  margin: 20px;
 }
 
-.copyright span{
-    margin: 5px 5px;
+.copyright span {
+  margin: 5px 5px;
 }
