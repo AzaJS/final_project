@@ -1,26 +1,42 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { cartContext } from "../../contexts/cartContext";
-// import { favouritesContext } from "../../contexts/favouritesContext";
-import { HeartOutlined } from "@ant-design/icons";
-
 import { productsContext } from "../../contexts/productsContext";
+import { favouritesContext } from "../../contexts/favouritesContext";
+
+import { HeartOutlined } from "@ant-design/icons";
+import Comments from "../Comments/Comments";
 
 const DetailsProduct = () => {
   const { id } = useParams();
+
   const { getOneProduct, oneProduct } = useContext(productsContext);
+
   const { addProductToCart, checkItemInCart } = useContext(cartContext);
+
+  const { addProductToFavs, checkItemInFavs } = useContext(favouritesContext);
+
   // const [product, setProduct] = useState(null);
+
   const [checkInCart, setCheckInCart] = useState(checkItemInCart(id));
+
+  const [checkInFavs, setCheckInFavs] = useState(checkItemInFavs(id));
+
   useEffect(() => {
     getOneProduct(id);
   }, []);
+
   // useEffect(() => {
   //   setProduct(oneProduct);
   // }, [oneProduct]);
+
   useEffect(() => {
     setCheckInCart(checkItemInCart(id));
+    setCheckInFavs(checkItemInFavs(id));
   });
+
+  // console.log(checkInFavs, "favs
+
   return (
     <div className="container">
       {oneProduct ? (
@@ -91,18 +107,20 @@ const DetailsProduct = () => {
               </button>
               <div>
                 <HeartOutlined
-                  style={{ fontSize: "25px", cursor: "pointer" }}
+                  style={{
+                    fontSize: "25px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    addProductToFavs(oneProduct);
+                    setCheckInCart(checkItemInFavs(id));
+                  }}
                 />
                 Add to favourites
               </div>
             </div>
           </div>
-          <div className="comments">
-            <div></div>
-            <div>
-              <input type="text" />
-            </div>
-          </div>
+          <Comments oneProduct={oneProduct} />
         </>
       ) : (
         <h2>Loading...</h2>

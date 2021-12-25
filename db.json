@@ -46,11 +46,28 @@
       "id": 5
     }
   ],
-  "comments":[
+  "comments": [
     {
+      "user": "aziret1@gmail.com",
       "productID": 2,
-      "comment": "Super one",
-      "id":1
+      "comment": "hhh",
+      "createdAt": "2021-12-25T21:54:03.857Z",
+      "id": 1
+    },
+    {
+      "user": "aziret1@gmail.com",
+      "productID": 2,
+      "comment": "jjjdad",
+      "createdAt": null,
+      "id": 2,
+      "jjjdad": ""
+    },
+    {
+      "user": "aziretbp001@gmail.com",
+      "productID": 2,
+      "comment": "nice one!",
+      "createdAt": null,
+      "id": 3
     }
   ]
 }

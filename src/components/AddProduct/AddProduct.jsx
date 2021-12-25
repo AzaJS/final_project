@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import { Form, Input, Button, Select, Modal } from "antd";
+import { Form, Input, Select, Modal } from "antd";
 
 import { productsContext } from "../../contexts/productsContext";
 

@@ -9,19 +9,26 @@ import "./Store.css";
 
 const Store = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const [search, setSearch] = useState(
     searchParams.get("q") ? searchParams.get("q") : ""
   );
+
   const [page, setPage] = useState(
     searchParams.get("_page") ? searchParams.get("_page") : 1
   );
+
   const [limit, setLimit] = useState(
     searchParams.get("_limit") ? searchParams.get("_limit") : 4
   );
+
   const [price, setPrice] = useState([1, 10000]);
+
   const [album, setAlbum] = useState([]);
+
   const { getProducts, products, productsTotalCount } =
     useContext(productsContext);
+
   useEffect(() => {
     setSearchParams({
       q: search,
@@ -32,9 +39,11 @@ const Store = () => {
       price_lte: price[1],
     });
   }, []);
+
   useEffect(() => {
     getProducts();
   }, [searchParams]);
+
   useEffect(() => {
     setSearchParams({
       q: search,
@@ -45,6 +54,7 @@ const Store = () => {
       price_lte: price[1],
     });
   }, [search, page, limit, album, price]);
+
   console.log(products);
   return (
     <div className="container" style={{ marginTop: "20px" }}>

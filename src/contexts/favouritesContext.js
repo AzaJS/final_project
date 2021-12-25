@@ -28,13 +28,11 @@ const FavouritesContextProvider = ({ children }) => {
     if (!favs) {
       favs = {
         products: [],
-        totalPrice: 0,
       };
     }
     let newProduct = {
       item: product,
       count: 1,
-      subPrice: product.price,
     };
     let filteredCart = favs.products.filter(
       (item) => item.item.id === product.id
@@ -56,7 +54,6 @@ const FavouritesContextProvider = ({ children }) => {
     if (!favs) {
       favs = {
         products: [],
-        totalPrice: 0,
       };
     }
     // cart.totalPrice = calcTotalPrice(cart.products);
@@ -71,7 +68,6 @@ const FavouritesContextProvider = ({ children }) => {
     if (!favs) {
       favs = {
         products: [],
-        totalPrice: 0,
       };
     }
     favs.products = favs.products.filter((item) => item.item.id !== id);
@@ -84,29 +80,12 @@ const FavouritesContextProvider = ({ children }) => {
     if (!favs) {
       favs = {
         products: [],
-        totalPrice: 0,
       };
     }
     let filteredCart = favs.products.filter((item) => item.item.id === id);
     return filteredCart.length > 0 ? true : false;
   }
 
-  //   function changeProductCount(count, id) {
-  //     if (count <= 0) {
-  //       count = 1;
-  //     }
-  //     let cart = JSON.parse(localStorage.getItem("favs"));
-  //     cart.products = cart.products.map((item) => {
-  //       if (item.item.id === id) {
-  //         item.count = count;
-  //         // item.subPrice = calcSubPrice(item);
-  //       }
-  //       return item;
-  //     });
-  //     // cart.totalPrice = calcTotalPrice(cart.products);
-  //     localStorage.setItem("favs", JSON.stringify(cart));
-  //     getCart();
-  //   }
   return (
     <favouritesContext.Provider
       value={{

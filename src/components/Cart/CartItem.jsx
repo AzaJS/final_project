@@ -12,7 +12,6 @@ const CartItem = ({ item }) => {
         marginLeft: "auto",
         marginRight: "auto",
         marginTop: "10vh",
-        // borderTop: "1px solid grey",
         borderBottom: "1px solid grey",
       }}
       key={item.id}
@@ -22,9 +21,6 @@ const CartItem = ({ item }) => {
         title={
           <div
             style={{
-              //   display: "flex",
-              //   justifyContent: "space-between",
-              //   alignItems: "center",
               width: "70%",
             }}
           >

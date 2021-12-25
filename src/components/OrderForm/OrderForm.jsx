@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Modal, Form, Input, Button } from "antd";
-import CreditApp from "../CreditCard/CreditApp";
+import { Form, Input } from "antd";
+// import CreditApp from "../CreditCard/CreditApp";
 import App from "../CreditCard/CreditApp";
 import { useNavigate } from "react-router-dom";
 //добить инвойс

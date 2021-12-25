@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { List, Avatar, Pagination, Col } from "antd";
-import { Link, useSearchParams } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { List, Avatar, Col } from "antd";
+import { Link } from "react-router-dom";
 
 import { productsContext } from "../../contexts/productsContext";
 

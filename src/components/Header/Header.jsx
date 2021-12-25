@@ -7,13 +7,16 @@ import { useAuth } from "../../contexts/authContext";
 import { Badge } from "antd";
 import { cartContext } from "../../contexts/cartContext";
 import { ShoppingCartOutlined, HeartOutlined } from "@ant-design/icons";
+import { favouritesContext } from "../../contexts/favouritesContext";
 
 const Header = () => {
   const location = useLocation();
   const { user } = useAuth();
   const { getCart, cartLength } = useContext(cartContext);
+  const { getFavs, favsLength } = useContext(favouritesContext);
   useEffect(() => {
     getCart();
+    getFavs();
   }, []);
   return (
     <div className={location.pathname === "/" ? "header" : "header_active"}>
@@ -87,7 +90,17 @@ const Header = () => {
       </div>
       {/*  */}
       <div className="right-navbar">
-        <div></div>
+        <Link to="/favs">
+          <Badge size="small" color="red" count={+favsLength}>
+            <HeartOutlined
+              style={
+                location.pathname === "/"
+                  ? { color: "white", fontSize: "20px" }
+                  : { color: "black", fontSize: "20px" }
+              }
+            />
+          </Badge>
+        </Link>
         <Link
           to="/store"
           style={
@@ -98,6 +111,7 @@ const Header = () => {
         >
           <div>Met store</div>
         </Link>
+
         {/* <div> */}
         {/* Cart
           <IoCartOutline size="25px" /> */}

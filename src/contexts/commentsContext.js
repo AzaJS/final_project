@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import axios from "axios";
-import { CASE_GET_COMMENTS } from "../helpers/cases";
+import { CASE_GET_COMMENTS, CASE_GET_ONE_COMMENT } from "../helpers/cases";
 import { COMMENTS_API } from "../helpers/const";
 
 export const commentsContext = React.createContext();
@@ -19,6 +19,12 @@ const reducer = (state = INIT_STATE, action) => {
         comments: action.payload.data,
       };
     }
+    case CASE_GET_ONE_COMMENT: {
+      return {
+        ...state,
+        oneComment: action.payload.data,
+      };
+    }
     default:
       return state;
   }
@@ -33,20 +39,20 @@ const CommentsContextProvider = ({ children }) => {
   }
 
   async function getComments() {
-    let result = await axios.get(`${COMMENTS_API}${window.location.search}`);
+    let result = await axios.get(`${COMMENTS_API}`);
     dispatch({
       type: CASE_GET_COMMENTS,
       payload: result,
     });
   }
 
-  //   async function getOneProduct(id) {
-  //     let result = await axios.get(`${PRODUCTS_API}/${id}`);
-  //     dispatch({
-  //       type: CASE_GET_ONE_PRODUCT,
-  //       payload: result,
-  //     });
-  //   }
+  async function getOneComment(id) {
+    let result = await axios.get(`${COMMENTS_API}/${id}`);
+    dispatch({
+      type: CASE_GET_ONE_COMMENT,
+      payload: result,
+    });
+  }
   async function deleteComment(id) {
     await axios.delete(`${COMMENTS_API}/${id}`);
     getComments();
@@ -59,10 +65,12 @@ const CommentsContextProvider = ({ children }) => {
     <commentsContext.Provider
       value={{
         comments: state.comments,
+        oneComment: state.oneComment,
         getComments,
         createComment,
         updateComment,
         deleteComment,
+        getOneComment,
       }}
     >
       {children}

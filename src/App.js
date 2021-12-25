@@ -9,19 +9,22 @@ import ProductsContextProvider from "./contexts/productsContext";
 import CartContextProvider from "./contexts/cartContext";
 import "antd/dist/antd.css";
 import FavouritesContextProvider from "./contexts/favouritesContext";
+import CommentsContextProvider from "./contexts/commentsContext";
 
 const App = () => {
   return (
     <AuthContextProvider>
       <CartContextProvider>
         <FavouritesContextProvider>
-          <ProductsContextProvider>
-            <BrowserRouter>
-              <Header />
-              <Routing />
-              <Footer />
-            </BrowserRouter>
-          </ProductsContextProvider>
+          <CommentsContextProvider>
+            <ProductsContextProvider>
+              <BrowserRouter>
+                <Header />
+                <Routing />
+                <Footer />
+              </BrowserRouter>
+            </ProductsContextProvider>
+          </CommentsContextProvider>
         </FavouritesContextProvider>
       </CartContextProvider>
     </AuthContextProvider>

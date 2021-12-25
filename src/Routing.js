@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
 import Cart from "./components/Cart/Cart";
 import DetailsProduct from "./components/DetailsProduct/DetailsProduct";
-// import Login from "./components/Auth/Login";
 import Home from "./components/Home/Home";
 import Store from "./components/Store/Store";
 import { useAuth } from "./contexts/authContext";
@@ -11,6 +10,7 @@ import AdminPage from "./pages/AdminPage";
 import CreditApp from "./components/CreditCard/CreditApp";
 import EditProduct from "./components/EditProduct/EditProduct";
 import OrderForm from "./components/OrderForm/OrderForm";
+import Favourites from "./components/Favourites/Favourites";
 
 const Routing = () => {
   let PUBLIC_ROUTES = [
@@ -48,6 +48,11 @@ const Routing = () => {
       link: "/credit",
       element: <CreditApp />,
       id: 7,
+    },
+    {
+      link: "/favs",
+      element: <Favourites />,
+      id: 8,
     },
   ];
 

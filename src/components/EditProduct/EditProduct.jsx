@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
-import { Button, Form, Input, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import { productsContext } from "../../contexts/productsContext";
 
 const EditProduct = () => {

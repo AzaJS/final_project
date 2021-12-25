@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { List } from "antd";
 import { cartContext } from "../../contexts/cartContext";
 import CartItem from "./CartItem";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const navigate = useNavigate();
   const { getCart, cart } = useContext(cartContext);
   useEffect(() => {
     getCart();
