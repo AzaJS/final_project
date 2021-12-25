@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
-import { IoPersonOutline, IoCartOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
 import "./Header.css";
 import { useAuth } from "../../contexts/authContext";
+import { Badge } from "antd";
+import { cartContext } from "../../contexts/cartContext";
+import { ShoppingCartOutlined, HeartOutlined } from "@ant-design/icons";
 
 const Header = () => {
   const location = useLocation();
-  const { handleLogout, user } = useAuth();
+  const { user } = useAuth();
+  const { getCart, cartLength } = useContext(cartContext);
+  useEffect(() => {
+    getCart();
+  }, []);
   return (
     <div className={location.pathname === "/" ? "header" : "header_active"}>
       <div className="left-navbar">
@@ -16,11 +22,6 @@ const Header = () => {
           <FiMenu />
           Menu
         </div>
-        {/* <div>
-          <FaSearch />
-          Search
-        </div> */}
-
         {!user ? (
           <Link
             to="/auth"
@@ -97,10 +98,29 @@ const Header = () => {
         >
           <div>Met store</div>
         </Link>
-        <div>
+        {/* <div> */}
+        {/* Cart
+          <IoCartOutline size="25px" /> */}
+        <Link
+          to="/cart"
+          style={
+            location.pathname === "/"
+              ? { color: "white", textDecoration: "none" }
+              : { color: "black", textDecoration: "none" }
+          }
+        >
           Cart
-          <IoCartOutline size="25px" />
-        </div>
+          <Badge size="small" color="red" count={+cartLength}>
+            <ShoppingCartOutlined
+              style={
+                location.pathname === "/"
+                  ? { color: "white", fontSize: "20px" }
+                  : { color: "black", fontSize: "20px" }
+              }
+            />
+          </Badge>
+        </Link>
+        {/* </div> */}
       </div>
     </div>
   );

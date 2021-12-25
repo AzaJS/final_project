@@ -1,11 +1,16 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
+import Cart from "./components/Cart/Cart";
+import DetailsProduct from "./components/DetailsProduct/DetailsProduct";
 // import Login from "./components/Auth/Login";
 import Home from "./components/Home/Home";
 import Store from "./components/Store/Store";
 import { useAuth } from "./contexts/authContext";
 import AdminPage from "./pages/AdminPage";
+import CreditApp from "./components/CreditCard/CreditApp";
+import EditProduct from "./components/EditProduct/EditProduct";
+import OrderForm from "./components/OrderForm/OrderForm";
 
 const Routing = () => {
   let PUBLIC_ROUTES = [
@@ -24,6 +29,26 @@ const Routing = () => {
       element: <Store />,
       id: 3,
     },
+    {
+      link: "/products/:id",
+      element: <DetailsProduct />,
+      id: 4,
+    },
+    {
+      link: "/cart",
+      element: <Cart />,
+      id: 5,
+    },
+    {
+      link: "/order",
+      element: <OrderForm />,
+      id: 6,
+    },
+    {
+      link: "/credit",
+      element: <CreditApp />,
+      id: 7,
+    },
   ];
 
   const ADMIN_ROUTES = [
@@ -32,13 +57,18 @@ const Routing = () => {
       element: <AdminPage />,
       id: 1,
     },
+    {
+      link: "/edit/:id",
+      element: <EditProduct />,
+      id: 2,
+    },
   ];
 
   const { user } = useAuth();
   return (
     <Routes>
       {PUBLIC_ROUTES.map((item) => (
-        <Route path={item.link} element={item.element} />
+        <Route key={item.id} path={item.link} element={item.element} />
       ))}
       {user
         ? ADMIN_ROUTES.map((item) => (

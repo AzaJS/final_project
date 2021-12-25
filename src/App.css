@@ -1,13 +1,25 @@
+@import "antd/dist/antd.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "DM Sans", sans-serif;
+  /* font-family: "DM Sans", sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
   /* border: 1px solid white; */
 }
 
 body {
-  background-color: #f7f6f6;
+  /* background-color: #f7f6f6; */
+  background-color: #f5f5f5;
+}
+
+.container {
+  padding: 60px;
+  margin: auto;
+  min-height: 400px;
+  min-width: 370px;
 }
 
 body::-webkit-scrollbar {

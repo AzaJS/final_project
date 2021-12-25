@@ -1,20 +1,50 @@
-
-
-.social-links{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.social-links {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
-.links-list{
-    display: flex;
-    margin: 5px;
-    margin-right: 20px;
+.links-list {
+  display: flex;
+  margin: 5px;
+  margin-right: 20px;
 }
 
-.links-list li{
-    list-style-type: none;
-    margin: 10px;
-    cursor: pointer;
-    color: white;
+.links-list li {
+  list-style-type: none;
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.upcoming {
+  display: flex;
+}
+
+.dates-place {
+  display: flex;
+}
+
+.date {
+  width: 5%;
+  margin-right: 5vw;
+}
+
+.btns button {
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  background-color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin: 0 15px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.btns button:hover {
+  box-shadow: 1px 2px 1px grey;
+  transition: 90ms;
+}
+
+.btns {
+  margin-bottom: 50px;
 }

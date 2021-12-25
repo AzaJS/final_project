@@ -1,0 +1,6 @@
+export const CASE_GET_PRODUCTS = "GET_PRODUCTS";
+export const CASE_GET_ONE_PRODUCT = "GET_ONE_PRODUCT";
+export const CASE_GET_CART = "GET_CART";
+export const CASE_GET_FAVS = "GET_FAVS";
+export const CASE_GET_COMMENTS = "GET_COMMENTS";
+export const CASE_GET_ONE_COMMENT = "GET_ONE_COMMENT";

@@ -45,20 +45,20 @@ const AuthContextProvider = ({ children }) => {
     setPasswordError("");
   };
 
-  const actionCodeSettings = {
-    url: "final-project-azret.web.app",
+  // const actionCodeSettings = {
+  //   url: "final-project-azret.web.app",
 
-    handleCodeInApp: true,
-    iOS: {
-      bundleId: "final-project-azret.firebaseapp.com",
-    },
-    android: {
-      packageName: "final-project-azret.firebaseapp.com",
-      installApp: true,
-      minimumVersion: "12",
-    },
-    dynamicLinkDomain: "azret-project-app.web.com",
-  };
+  //   handleCodeInApp: true,
+  //   iOS: {
+  //     bundleId: "final-project-azret.firebaseapp.com",
+  //   },
+  //   android: {
+  //     packageName: "final-project-azret.firebaseapp.com",
+  //     installApp: true,
+  //     minimumVersion: "12",
+  //   },
+  //   dynamicLinkDomain: "azret-project-app.web.com",
+  // };
 
   const googleProvider = new GoogleAuthProvider();
   const authWithGoogle = async () => {

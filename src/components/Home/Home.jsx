@@ -45,7 +45,98 @@ const Home = () => {
           </ul>
         </div>
       </div>
-      <div>asd</div>
+      <div
+        className="upcoming container"
+        style={{
+          backgroundImage: "url(/home-upcoming.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100vh",
+        }}
+      >
+        {/* <h1>TOUR DATES</h1> */}
+        <div className="tour-dates">
+          <div className="dates-place">
+            <h2 className="date">FEB 25</h2>
+            <div className="place">
+              <h2>Las Vegas, NV, United States</h2>
+              <h3>Allegiant Stadium</h3>
+            </div>
+          </div>
+          <div className="dates-place">
+            <h2 className="date">APR 27</h2>
+            <div className="place">
+              <h2>Santiago, Chile</h2>
+              <h3>Estadio Nacional</h3>
+            </div>
+          </div>
+          <div className="dates-place">
+            <h2 className="date">APR 30</h2>
+            <div className="place">
+              <h2>Buenos Aires, Argentina</h2>
+              <h3>Campo Argentino de Polo</h3>
+            </div>
+          </div>
+          <div className="dates-place">
+            <h2 className="date">MAY 05</h2>
+            <div className="place">
+              <h2>Porto Alegre, Brazil</h2>
+              <h3>Estacionamento da Fiergs</h3>
+            </div>
+          </div>
+          <div className="dates-place">
+            <h2 className="date">MAY 07</h2>
+            <div className="place">
+              <h2>Curitiba, Brazil</h2>
+              <h3>Estádio Couto Pereira</h3>
+            </div>
+          </div>
+          <div className="dates-place">
+            <h2 className="date">MAY 10</h2>
+            <div className="place">
+              <h2>São Paulo, Brazil</h2>
+              <h3>Estádio do Morumbi</h3>
+            </div>
+          </div>
+          <div className="dates-place">
+            <h2 className="date">FEB 25</h2>
+            <div className="place">
+              <h2>Belo Horizonte, Brazil</h2>
+              <h3>Estádio do Mineirão</h3>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+          <div className="btns">
+            <button>BUY TICKETS</button>
+            <button>BUY ENHANCED EXPERIENCE</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
