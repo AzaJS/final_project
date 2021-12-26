@@ -6,7 +6,11 @@ import {
   useState,
 } from "react";
 import fire from "../firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
+  signInWithPopup,
+} from "firebase/auth";
 import { aut } from "../firebase";
 
 export const authContext = createContext();
@@ -45,20 +49,26 @@ const AuthContextProvider = ({ children }) => {
     setPasswordError("");
   };
 
-  // const actionCodeSettings = {
-  //   url: "final-project-azret.web.app",
+  const actionCodeSettings = {
+    url: "final-project-azret.web.app",
 
-  //   handleCodeInApp: true,
-  //   iOS: {
-  //     bundleId: "final-project-azret.firebaseapp.com",
-  //   },
-  //   android: {
-  //     packageName: "final-project-azret.firebaseapp.com",
-  //     installApp: true,
-  //     minimumVersion: "12",
-  //   },
-  //   dynamicLinkDomain: "azret-project-app.web.com",
-  // };
+    handleCodeInApp: true,
+    iOS: {
+      bundleId: "final-project-azret.firebaseapp.com",
+    },
+    android: {
+      packageName: "final-project-azret.firebaseapp.com",
+      installApp: true,
+      minimumVersion: "12",
+    },
+    dynamicLinkDomain: "azret-project-app.web.com",
+  };
+
+  function forgotPassword(email) {
+    return sendPasswordResetEmail(aut, email, {
+      url: "http://localhost:3000/auth",
+    });
+  }
 
   const googleProvider = new GoogleAuthProvider();
   const authWithGoogle = async () => {
@@ -67,6 +77,26 @@ const AuthContextProvider = ({ children }) => {
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const handleSignInViaEmail = () => {
+    clearErrors();
+    fire
+      .sendSignInLinkToEmail(aut, email, actionCodeSettings)
+      .then(() => {
+        window.localStorage.setItem("emailForSignIn", email);
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+          case "auth/invalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
   };
 
   const handleSignUp = () => {
@@ -139,6 +169,8 @@ const AuthContextProvider = ({ children }) => {
     emailError,
     passwordError,
     authWithGoogle,
+    forgotPassword,
+    handleSignInViaEmail,
     googleUser: state.googleUser,
   };
 

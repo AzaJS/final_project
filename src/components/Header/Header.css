@@ -56,24 +56,24 @@
 }
 
 #menu__toggle {
-  /* opacity: 1; */
-  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  /* background: rgba(0, 0, 0, 0.5); */
   /* z-index: ; */
 }
 
 #menu__toggle:checked ~ .menu__btn > span {
   transform: rotate(45deg);
-  background-color: black;
+  /* background-color: black; */
 }
 #menu__toggle:checked ~ .menu__btn > span::before {
   top: 0;
   transform: rotate(0);
-  background-color: black;
+  /* background-color: black; */
 }
 #menu__toggle:checked ~ .menu__btn > span::after {
   top: 0;
   transform: rotate(90deg);
-  background-color: black;
+  /* background-color: black; */
 }
 #menu__toggle:checked ~ .menu__box {
   visibility: visible;
@@ -152,8 +152,8 @@
   transition-duration: 0.25s;
 }
 .menu__item:hover {
-  /* background-color: #cfd8dc; */
-  cursor: pointer;
+  background-color: #cfd8dc;
+  /* cursor: pointer; */
 }
 
 @media (max-width: 683px) {

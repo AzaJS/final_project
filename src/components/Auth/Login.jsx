@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
 
 import "./Login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     email,
     setEmail,
@@ -16,6 +18,7 @@ const Login = () => {
     passwordError,
     setHasAccount,
     authWithGoogle,
+    handleSignInViaEmail,
   } = useAuth();
   return (
     <div className="login">
@@ -57,7 +60,12 @@ const Login = () => {
               <button className="auth-btn" onClick={handleLogin}>
                 LOGIN
               </button>
-              <span>Forgot password?</span>
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/reset")}
+              >
+                Forgot password?
+              </span>
               <p
                 style={{ cursor: "pointer" }}
                 onClick={() => setHasAccount(!hasAccount)}
@@ -81,8 +89,8 @@ const Login = () => {
           )}
         </div>
         <button
-          className="google-btn"
-          style={{ height: "30px" }}
+          className="auth-btn"
+          style={{ height: "30px", width: "auto", marginBottom: "10px" }}
           onClick={authWithGoogle}
         >
           <img
@@ -92,6 +100,13 @@ const Login = () => {
             alt=""
           />
           Google
+        </button>
+        <button
+          style={{ width: "auto" }}
+          className="auth-btn"
+          onClick={handleSignInViaEmail}
+        >
+          Via Email Verification
         </button>
       </div>
     </div>

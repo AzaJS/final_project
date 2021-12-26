@@ -11,6 +11,8 @@ import CreditApp from "./components/CreditCard/CreditApp";
 import EditProduct from "./components/EditProduct/EditProduct";
 import OrderForm from "./components/OrderForm/OrderForm";
 import Favourites from "./components/Favourites/Favourites";
+import ForgorPassword from "./components/Auth/ForgorPassword";
+import Chat from "./components/Chat/Chat";
 
 const Routing = () => {
   let PUBLIC_ROUTES = [
@@ -53,6 +55,11 @@ const Routing = () => {
       link: "/favs",
       element: <Favourites />,
       id: 8,
+    },
+    {
+      link: "/chat",
+      element: <Chat />,
+      id: 9,
     },
   ];
 
