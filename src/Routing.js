@@ -61,6 +61,11 @@ const Routing = () => {
       element: <Chat />,
       id: 9,
     },
+    {
+      link: "/reset",
+      element: <ForgorPassword />,
+      id: 10,
+    },
   ];
 
   const ADMIN_ROUTES = [

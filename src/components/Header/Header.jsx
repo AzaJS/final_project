@@ -31,20 +31,20 @@ const Header = () => {
                 to="/auth"
                 style={{ color: "black", textDecoration: "none" }}
               >
-                <div>
+                <h2>
                   <IoPersonOutline />
                   Login
-                </div>
+                </h2>
               </Link>
             ) : user.email === "aziret1@gmail.com" ? (
               <Link
                 to="/admin"
                 style={{ color: "black", textDecoration: "none" }}
               >
-                <div>
+                <h2>
                   <IoPersonOutline />
                   Admin
-                </div>
+                </h2>
               </Link>
             ) : (
               <Link

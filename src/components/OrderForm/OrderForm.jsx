@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Form, Input } from "antd";
-// import CreditApp from "../CreditCard/CreditApp";
-import App from "../CreditCard/CreditApp";
+import { Form, Input, Modal } from "antd";
+import CreditApp from "../CreditCard/CreditApp";
+// import App from "../CreditCard/CreditApp";
 import { useNavigate } from "react-router-dom";
 //добить инвойс
 const OrderForm = () => {
@@ -21,10 +21,14 @@ const OrderForm = () => {
   };
 
   const onFinish = (values) => {
-    navigate("/");
+    showModal();
     console.log("Received values of form: ", values);
   };
-  console.log(App);
+
+  const onSecondFinish = (values) => {
+    navigate("/");
+  };
+  //   console.log(App);
   return (
     <>
       <div className="container" style={{ marginTop: "10vh" }}>
@@ -116,7 +120,7 @@ const OrderForm = () => {
           </Form.Item>
         </Form>
       </div>
-      {/* <Modal
+      <Modal
         title="Payment"
         visible={isModalVisible}
         onCancel={handleCancel}
@@ -130,7 +134,7 @@ const OrderForm = () => {
         >
           <CreditApp />
         </Form>
-      </Modal> */}
+      </Modal>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-credit-cards";
 import "./CreditCard.css";
 
@@ -59,7 +59,6 @@ export default class App extends React.Component {
 
     this.setState({ formData });
     this.form.reset();
-    console.log(this.state);
   };
 
   render() {
@@ -69,21 +68,21 @@ export default class App extends React.Component {
       <>
         <div
           key="Payment"
-          className="container"
+          // className="container"
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             // width: "40vw",
-            // marginLeft: "-4vw",
+            marginLeft: "-4vw",
           }}
         >
           <div
             className="App-payment"
             style={{
-              marginTop: "50px",
+              // marginTop: "50px",
               width: "50%",
-              // height: "70%",
+              height: "70%",
               textAlign: "center",
               fontSize: "15px",
               padding: "20px",
@@ -229,7 +228,7 @@ export default class App extends React.Component {
                     onFocus={this.handleInputFocus}
                   />
                 </div>
-                <div className="col-6">
+                <div className="col-7">
                   <input
                     style={{
                       // backgroundColor: "#ffffff",
@@ -255,11 +254,10 @@ export default class App extends React.Component {
                 {/* <Link to="/"> */}
                 <button
                   className="auth-btn"
-                  // onClick={() => alert("Спасибо за покупку!")}
+                  onClick={() => alert("THANKS FOR BUYING!!!")}
                   style={{ marginTop: "10px", width: "90%", height: "auto" }}
                   // variant="contained"
                   // color="secondary"
-                  type="submit"
                 >
                   Pay
                 </button>
