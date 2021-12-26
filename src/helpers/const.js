@@ -1,2 +1,4 @@
-export const PRODUCTS_API = "http://localhost:8000/products";
-export const COMMENTS_API = "http://localhost:8000/comments";
+export const PRODUCTS_API =
+  "https://final-project-azret.herokuapp.com/products";
+export const COMMENTS_API =
+  "https://final-project-azret.herokuapp.com/comments";
