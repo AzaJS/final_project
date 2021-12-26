@@ -20,6 +20,7 @@ const CartItem = ({ item }) => {
       <List.Item.Meta
         title={
           <div
+            className="list-item"
             style={{
               width: "70%",
             }}

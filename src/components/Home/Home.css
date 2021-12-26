@@ -48,3 +48,68 @@
 .btns {
   margin-bottom: 50px;
 }
+
+@media (max-height: 497px) {
+  .upcoming {
+    font-size: 11px;
+  }
+  .btns {
+    margin: 10% 0;
+  }
+}
+
+@media (max-height: 442px) {
+  .upcoming {
+    font-size: 9px;
+  }
+  .btns {
+    margin: 10% 0;
+  }
+}
+/* 
+@media (max-width: 1024px) {
+  .home-hero {
+    height: 70vh;
+    background-size: contain;
+  }
+} */
+
+@media (max-width: 789px) {
+  .btns {
+    margin: 4% 0;
+  }
+}
+
+@media (max-width: 693px) {
+  .upcoming {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 590px) {
+  .home-hero {
+    /* max-width: 590px; */
+    /* min-width: 590px; */
+    max-height: 300px;
+    min-width: 590px;
+  }
+  .footer {
+    min-width: 590px;
+  }
+  .upcoming {
+    min-width: 590px;
+    font-size: 10px;
+  }
+  .btns {
+    margin: 5% 0;
+  }
+  .social-links {
+    bottom: 200px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    font-size: 25px;
+  }
+}

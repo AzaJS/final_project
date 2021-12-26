@@ -18,7 +18,7 @@ body {
 .container {
   padding: 60px;
   margin: auto;
-  min-height: 400px;
+  min-height: 75vh;
   min-width: 370px;
 }
 
@@ -34,4 +34,16 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-track {
   border-width: 0;
+}
+
+@media (max-width: 590px) {
+  .container {
+    min-width: 590px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    font-size: 25px;
+  }
 }

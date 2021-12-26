@@ -55,7 +55,7 @@ const Home = () => {
         }}
       >
         {/* <h1>TOUR DATES</h1> */}
-        <div className="tour-dates">
+        <div className="tour-dates" style={{ height: "100%" }}>
           <div className="dates-place">
             <h2 className="date">FEB 25</h2>
             <div className="place">

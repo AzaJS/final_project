@@ -27,3 +27,27 @@
 .copyright span {
   margin: 5px 5px;
 }
+
+@media (max-width: 797px) {
+  .footer-links {
+    font-size: 10px;
+  }
+}
+@media (max-width: 715px) {
+  .menu-footer ul {
+    flex-direction: column;
+  }
+  .copyright {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-footer {
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 495px) {
+  .logo-footer {
+    width: 200px;
+  }
+}

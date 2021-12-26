@@ -5,7 +5,7 @@ import Login from "./Login";
 
 const Auth = () => {
   const { user } = useAuth();
-  return <div>{user ? <Account /> : <Login />}</div>;
+  return <div className="container">{user ? <Account /> : <Login />}</div>;
 };
 
 export default Auth;

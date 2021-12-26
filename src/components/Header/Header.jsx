@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
 import "./Header.css";
 import { useAuth } from "../../contexts/authContext";
@@ -21,9 +20,59 @@ const Header = () => {
   return (
     <div className={location.pathname === "/" ? "header" : "header_active"}>
       <div className="left-navbar">
-        <div>
-          <FiMenu />
-          Menu
+        <div className="hamburger-menu">
+          <input id="menu__toggle" type="checkbox" />
+          <label className="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+          <ul className="menu__box">
+            {!user ? (
+              <Link
+                to="/auth"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                <div>
+                  <IoPersonOutline />
+                  Login
+                </div>
+              </Link>
+            ) : user.email === "aziret1@gmail.com" ? (
+              <Link
+                to="/admin"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                <div>
+                  <IoPersonOutline />
+                  Admin
+                </div>
+              </Link>
+            ) : (
+              <Link
+                to="/auth"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                <h2>
+                  <IoPersonOutline />
+                  Account
+                </h2>
+              </Link>
+            )}
+            <Link
+              to="/store"
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              <h2>Met store</h2>
+            </Link>
+            <Link
+              to="/favourites"
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              <h2>Favourites</h2>
+            </Link>
+            <Link to="/cart" style={{ color: "black", textDecoration: "none" }}>
+              <h2>Cart</h2>
+            </Link>
+          </ul>
         </div>
         {!user ? (
           <Link
@@ -36,7 +85,7 @@ const Header = () => {
           >
             <div className="header-login">
               <IoPersonOutline />
-              Login
+              <span>Login</span>
             </div>
           </Link>
         ) : user.email === "aziret1@gmail.com" ? (
@@ -48,9 +97,9 @@ const Header = () => {
                 : { color: "black", textDecoration: "none" }
             }
           >
-            <div className="header-login">
+            <div className="header-login links">
               <IoPersonOutline />
-              Admin
+              <span>Admin</span>
             </div>
           </Link>
         ) : (
@@ -64,7 +113,7 @@ const Header = () => {
           >
             <div className="header-login">
               <IoPersonOutline />
-              Account
+              <span className="links">Account</span>
             </div>
           </Link>
         )}
@@ -81,6 +130,7 @@ const Header = () => {
         ) : (
           <Link to="/">
             <img
+              className="logo-altern"
               style={{ width: "25vw", height: "auto", border: "0" }}
               src="https://www.metallica.com/on/demandware.static/Sites-Metallica-Site/-/default/dwf7a2891a/images/header/logo.svg"
               alt=""
@@ -90,7 +140,7 @@ const Header = () => {
       </div>
       {/*  */}
       <div className="right-navbar">
-        <Link to="/favs">
+        <Link to="/favs" className="nav-link">
           <Badge size="small" color="red" count={+favsLength}>
             <HeartOutlined
               style={
@@ -102,6 +152,7 @@ const Header = () => {
           </Badge>
         </Link>
         <Link
+          className="links"
           to="/store"
           style={
             location.pathname === "/"
@@ -111,19 +162,16 @@ const Header = () => {
         >
           <div>Met store</div>
         </Link>
-
-        {/* <div> */}
-        {/* Cart
-          <IoCartOutline size="25px" /> */}
         <Link
           to="/cart"
+          className="nav-link"
           style={
             location.pathname === "/"
               ? { color: "white", textDecoration: "none" }
               : { color: "black", textDecoration: "none" }
           }
         >
-          Cart
+          <span className="links">Cart</span>
           <Badge size="small" color="red" count={+cartLength}>
             <ShoppingCartOutlined
               style={
@@ -134,7 +182,6 @@ const Header = () => {
             />
           </Badge>
         </Link>
-        {/* </div> */}
       </div>
     </div>
   );
