@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import { Form, Input, Select, Modal } from "antd";
+import { Form, Input, Select, Modal, InputNumber } from "antd";
 
 import { productsContext } from "../../contexts/productsContext";
 
@@ -67,7 +67,7 @@ const AddProduct = () => {
             name="price"
             rules={[{ required: true, message: "Please input price!" }]}
           >
-            <Input type="number" />
+            <InputNumber min={1} style={{ width: "100%" }} />
           </Form.Item>
           <Form.Item
             label="Album"
